@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.min.css" media="screen">
+    <title>My Short Example Grid</title>
+    <meta name="description" content="This is to demonstrate the concept of how the infinite-axis grid system works. This description here demonstrates multi-line YAML strings. <br>It also shows that you can write <b>HTML</b> if you want to.
+" />
+    <style>
+    .sel_table tr td
+    {
+        border: 1px solid black;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+    .secondary
+    {
+        background-color: #202020;
+    }
+    .primary
+    {
+        background-color: #303030;
+    }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <center>
+        <h1>My Short Example Grid</h1>
+        <h4>This is to demonstrate the concept of how the infinite-axis grid system works. This description here demonstrates multi-line YAML strings. <br>It also shows that you can write <b>HTML</b> if you want to.
+</h4>
+        <noscript>This page requires JavaScript to work. Don't worry, it's all local to the current page, and open source on GitHub.</noscript>
+        <hr>
+    </center>
+    <br>
+    <div style="margin: auto; width: fit-content;"><table class="sel_table">
+<tr class="primary">
+<td>
+<h4>Sampler</h4>
+Different samplers can produce slightly different output.</td>
+<td><ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_sampler__euler_a" id="clicktab_sampler__euler_a" aria-selected="true" role="tab" title="Euler A: Euler Ancestral is like Euler, but with <b>ancestral</b> stuff.">Euler A</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_sampler__euler" id="clicktab_sampler__euler" aria-selected="false" role="tab" title="Euler: Good ol k_euler.">Euler</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_sampler__ddim" id="clicktab_sampler__ddim" aria-selected="false" role="tab" title="DDIM: The original.">DDIM</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active show" id="tab_sampler__euler_a" role="tabpanel">Euler Ancestral is like Euler, but with <b>ancestral</b> stuff.</div>
+<div class="tab-pane" id="tab_sampler__euler" role="tabpanel">Good ol k_euler.</div>
+<div class="tab-pane" id="tab_sampler__ddim" role="tabpanel">The original.</div>
+</div></td></tr>
+<tr class="secondary">
+<td>
+<h4>Steps</h4>
+How many times to run the sampler.</td>
+<td><ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_steps__10" id="clicktab_steps__10" aria-selected="true" role="tab" title="10: Ten times.">10</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_steps__15" id="clicktab_steps__15" aria-selected="false" role="tab" title="15: ">15</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_steps__20" id="clicktab_steps__20" aria-selected="false" role="tab" title="20: ">20</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active show" id="tab_steps__10" role="tabpanel">Ten times.</div>
+<div class="tab-pane" id="tab_steps__15" role="tabpanel"></div>
+<div class="tab-pane" id="tab_steps__20" role="tabpanel"></div>
+</div></td></tr>
+<tr class="primary">
+<td>
+<h4>CFG Scale</h4>
+</td>
+<td><ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_cfgscale__3" id="clicktab_cfgscale__3" aria-selected="true" role="tab" title="3: ">3</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__5" id="clicktab_cfgscale__5" aria-selected="false" role="tab" title="5: ">5</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__7" id="clicktab_cfgscale__7" aria-selected="false" role="tab" title="7: ">7</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__9" id="clicktab_cfgscale__9" aria-selected="false" role="tab" title="9: ">9</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__11" id="clicktab_cfgscale__11" aria-selected="false" role="tab" title="11: ">11</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active show" id="tab_cfgscale__3" role="tabpanel"></div>
+<div class="tab-pane" id="tab_cfgscale__5" role="tabpanel"></div>
+<div class="tab-pane" id="tab_cfgscale__7" role="tabpanel"></div>
+<div class="tab-pane" id="tab_cfgscale__9" role="tabpanel"></div>
+<div class="tab-pane" id="tab_cfgscale__11" role="tabpanel"></div>
+</div></td></tr>
+<tr class="secondary">
+<td>
+<h4>Seed</h4>
+</td>
+<td><ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_seed__1" id="clicktab_seed__1" aria-selected="true" role="tab" title="1: ">1</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_seed__2" id="clicktab_seed__2" aria-selected="false" role="tab" title="2: ">2</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_seed__3" id="clicktab_seed__3" aria-selected="false" role="tab" title="3: ">3</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active show" id="tab_seed__1" role="tabpanel"></div>
+<div class="tab-pane" id="tab_seed__2" role="tabpanel"></div>
+<div class="tab-pane" id="tab_seed__3" role="tabpanel"></div>
+</div></td></tr>
+<tr class="primary">
+<td>
+<h4>Prompt</h4>
+</td>
+<td><ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_prompt__cat" id="clicktab_prompt__cat" aria-selected="true" role="tab" title="Cat: ">Cat</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_prompt__dog" id="clicktab_prompt__dog" aria-selected="false" role="tab" title="Dog: ">Dog</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active show" id="tab_prompt__cat" role="tabpanel"></div>
+<div class="tab-pane" id="tab_prompt__dog" role="tabpanel"></div>
+</div></td></tr>
+</table>
+<center><br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">X Axis:&nbsp;
+<input type="radio" class="btn-check" name="x_axis_selector" id="x_sampler" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_sampler" title="Different samplers can produce slightly different output.">Sampler</label>
+<input type="radio" class="btn-check" name="x_axis_selector" id="x_steps" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_steps" title="How many times to run the sampler.">Steps</label>
+<input type="radio" class="btn-check" name="x_axis_selector" id="x_cfgscale" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_cfgscale" title="">CFG Scale</label>
+<input type="radio" class="btn-check" name="x_axis_selector" id="x_seed" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_seed" title="">Seed</label>
+<input type="radio" class="btn-check" name="x_axis_selector" id="x_prompt" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_prompt" title="">Prompt</label>
+</div>
+<br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">Y Axis:&nbsp;
+<input type="radio" class="btn-check" name="y_axis_selector" id="y_sampler" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_sampler" title="Different samplers can produce slightly different output.">Sampler</label>
+<input type="radio" class="btn-check" name="y_axis_selector" id="y_steps" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_steps" title="How many times to run the sampler.">Steps</label>
+<input type="radio" class="btn-check" name="y_axis_selector" id="y_cfgscale" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_cfgscale" title="">CFG Scale</label>
+<input type="radio" class="btn-check" name="y_axis_selector" id="y_seed" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_seed" title="">Seed</label>
+<input type="radio" class="btn-check" name="y_axis_selector" id="y_prompt" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_prompt" title="">Prompt</label>
+</div></center></div>
+<div style="margin: auto; width: fit-content;"><table id="image_table"></table></div>
+
+    <footer>
+        <center>
+            <hr>
+            Created by YOUR NAME HERE for SOME REASON HERE
+            <br>The technology that powers this page is <a href="https://github.com/mcmonkeyprojects/sd-infinity-grid-generator-script">Infinity Grid Generator for Stable Diffusion</a>, published under the MIT license by Alex 'mcmonkey' Goodwin.
+            <br>This software allows users to generate pages with any content they desire. Therefore, content on this page (images, text, etc.) is the property of whoever generated this specific page.
+            <br>Made using the <a href="https://bootswatch.com/darkly/">Darkly Bootstrap Theme</a> by Thomas Park, which was released under the <a href="https://github.com/thomaspark/bootswatch/blob/95df99d76147797cbcb1014b639805add2327f65/LICENSE">MIT License</a>.
+        </center>
+    </footer>
+    <script src="data.js"></script>
+    <script src="proc.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+</body>

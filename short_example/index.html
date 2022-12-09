@@ -106,6 +106,18 @@ How many times to run the sampler.</td>
 <div class="tab-pane active show" id="tab_prompt__cat" role="tabpanel"></div>
 <div class="tab-pane" id="tab_prompt__dog" role="tabpanel"></div>
 </div></td></tr>
+<tr class="secondary">
+<td>
+<h4>Prompt Replacements</h4>
+</td>
+<td><ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_promptreplaceexample__field" id="clicktab_promptreplaceexample__field" aria-selected="true" role="tab" title=" location = field: "> location = field</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_promptreplaceexample__outer_space" id="clicktab_promptreplaceexample__outer_space" aria-selected="false" role="tab" title=" location = distant planet deep in outer space: "> location = distant planet deep in outer space</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active show" id="tab_promptreplaceexample__field" role="tabpanel"></div>
+<div class="tab-pane" id="tab_promptreplaceexample__outer_space" role="tabpanel"></div>
+</div></td></tr>
 </table>
 <center><br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">X Axis:&nbsp;
 <input type="radio" class="btn-check" name="x_axis_selector" id="x_sampler" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_sampler" title="Different samplers can produce slightly different output.">Sampler</label>
@@ -113,6 +125,7 @@ How many times to run the sampler.</td>
 <input type="radio" class="btn-check" name="x_axis_selector" id="x_cfgscale" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_cfgscale" title="">CFG Scale</label>
 <input type="radio" class="btn-check" name="x_axis_selector" id="x_seed" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_seed" title="">Seed</label>
 <input type="radio" class="btn-check" name="x_axis_selector" id="x_prompt" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_prompt" title="">Prompt</label>
+<input type="radio" class="btn-check" name="x_axis_selector" id="x_promptreplaceexample" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_promptreplaceexample" title="">Prompt Replacements</label>
 </div>
 <br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">Y Axis:&nbsp;
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_sampler" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_sampler" title="Different samplers can produce slightly different output.">Sampler</label>
@@ -120,8 +133,9 @@ How many times to run the sampler.</td>
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_cfgscale" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_cfgscale" title="">CFG Scale</label>
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_seed" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_seed" title="">Seed</label>
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_prompt" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_prompt" title="">Prompt</label>
+<input type="radio" class="btn-check" name="y_axis_selector" id="y_promptreplaceexample" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_promptreplaceexample" title="">Prompt Replacements</label>
 </div></center></div>
-<div style="margin: auto; width: fit-content;"><table id="image_table"></table></div>
+<div><center><input class="form-check-input" type="checkbox" value="" id="autoScaleImages"> <label class="form-check-label" for="autoScaleImages">Auto-scale images to viewport width</label></center></div><div style="margin: auto; width: fit-content;"><table id="image_table"></table></div>
 
     <footer>
         <center>

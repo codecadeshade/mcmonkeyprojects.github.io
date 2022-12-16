@@ -21,6 +21,51 @@
     {
         background-color: #303030;
     }
+    .axis_table_cell
+    {
+        max-width: 40em;
+        min-width: 10em;
+        max-height: 8em;
+        overflow: auto;
+    }
+    .tabval_subdiv
+    {
+        max-width: calc(95vw - 40em);
+        max-height: 8em;
+        overflow: auto;
+    }
+    table tr td {
+        vertical-align: top;
+        border: 1px solid black;
+    }
+    .popup_modal_background {
+        font-family: monospace, monospace;
+        background-color: rgb(50, 50, 50, 0.7);
+        text-align: center;
+    }
+    .popup_modal_img {
+        width: calc(min(100vw, 100vh - 6em));
+        position: relative;
+        margin: auto;
+    }
+    .popup_modal_undertext {
+        background-color: #404060;
+        overflow-wrap: break-word;
+    }
+    .modal_inner_div {
+        width: calc(min(100vw, 100vh - 6em));
+        margin: auto;
+    }
+    .advanced_settings_section {
+        max-width: calc(max(1000px, 60em));
+        text-align: left;
+    }
+    .timer_range {
+        vertical-align: bottom;
+    }
+    .tab_hidden {
+        display: none;
+    }
     </style>
     <script src="jquery.min.js"></script>
 </head>
@@ -31,92 +76,117 @@
 </h4>
         <noscript>This page requires JavaScript to work. Don't worry, it's all local to the current page, and open source on GitHub.</noscript>
         <hr>
+        <div class="accordion advanced_settings_section" id="settings_according">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="setting_according_heading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#settings_according_collapse" aria-expanded="false" aria-controls="settings_according_collapse">Advanced Settings</button>
+                </h2>
+                <div id="settings_according_collapse" class="accordion-collapse collapse" aria-labelledby="setting_according_heading" data-bs-parent="#settings_according">
+                    <div class="accordion-body">
+                        
+<h4>Sampler</h4><div class="timer_box">Auto cycle every <input style="width:30em;" autocomplete="off" type="range" min="0" max="360" value="0" class="form-range timer_range" id="range_tablist_sampler"><label class="form-check-label" for="range_tablist_sampler" id="label_range_tablist_sampler">0 seconds</label></div>
+Show value: <input class="form-check-input" type="checkbox" autocomplete="off" id="showval_sampler__euler_a" checked="true" onchange="javascript:toggleShowVal('sampler', 'euler_a')"> <label class="form-check-label" for="showval_sampler__euler_a" title="Uncheck this to hide 'Euler A' from the page.">Euler A</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_sampler__euler" checked="true" onchange="javascript:toggleShowVal('sampler', 'euler')"> <label class="form-check-label" for="showval_sampler__euler" title="Uncheck this to hide 'Euler' from the page.">Euler</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_sampler__ddim" checked="true" onchange="javascript:toggleShowVal('sampler', 'ddim')"> <label class="form-check-label" for="showval_sampler__ddim" title="Uncheck this to hide 'DDIM' from the page.">DDIM</label>
+<h4>Steps</h4><div class="timer_box">Auto cycle every <input style="width:30em;" autocomplete="off" type="range" min="0" max="360" value="0" class="form-range timer_range" id="range_tablist_steps"><label class="form-check-label" for="range_tablist_steps" id="label_range_tablist_steps">0 seconds</label></div>
+Show value: <input class="form-check-input" type="checkbox" autocomplete="off" id="showval_steps__10" checked="true" onchange="javascript:toggleShowVal('steps', '10')"> <label class="form-check-label" for="showval_steps__10" title="Uncheck this to hide '10' from the page.">10</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_steps__15" checked="true" onchange="javascript:toggleShowVal('steps', '15')"> <label class="form-check-label" for="showval_steps__15" title="Uncheck this to hide '15' from the page.">15</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_steps__20" checked="true" onchange="javascript:toggleShowVal('steps', '20')"> <label class="form-check-label" for="showval_steps__20" title="Uncheck this to hide '20' from the page.">20</label>
+<h4>CFG Scale</h4><div class="timer_box">Auto cycle every <input style="width:30em;" autocomplete="off" type="range" min="0" max="360" value="0" class="form-range timer_range" id="range_tablist_cfgscale"><label class="form-check-label" for="range_tablist_cfgscale" id="label_range_tablist_cfgscale">0 seconds</label></div>
+Show value: <input class="form-check-input" type="checkbox" autocomplete="off" id="showval_cfgscale__3" checked="true" onchange="javascript:toggleShowVal('cfgscale', '3')"> <label class="form-check-label" for="showval_cfgscale__3" title="Uncheck this to hide '3' from the page.">3</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_cfgscale__5" checked="true" onchange="javascript:toggleShowVal('cfgscale', '5')"> <label class="form-check-label" for="showval_cfgscale__5" title="Uncheck this to hide '5' from the page.">5</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_cfgscale__7" checked="true" onchange="javascript:toggleShowVal('cfgscale', '7')"> <label class="form-check-label" for="showval_cfgscale__7" title="Uncheck this to hide '7' from the page.">7</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_cfgscale__9" checked="true" onchange="javascript:toggleShowVal('cfgscale', '9')"> <label class="form-check-label" for="showval_cfgscale__9" title="Uncheck this to hide '9' from the page.">9</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_cfgscale__11" checked="true" onchange="javascript:toggleShowVal('cfgscale', '11')"> <label class="form-check-label" for="showval_cfgscale__11" title="Uncheck this to hide '11' from the page.">11</label>
+<h4>Seed</h4><div class="timer_box">Auto cycle every <input style="width:30em;" autocomplete="off" type="range" min="0" max="360" value="0" class="form-range timer_range" id="range_tablist_seed"><label class="form-check-label" for="range_tablist_seed" id="label_range_tablist_seed">0 seconds</label></div>
+Show value: <input class="form-check-input" type="checkbox" autocomplete="off" id="showval_seed__1" checked="true" onchange="javascript:toggleShowVal('seed', '1')"> <label class="form-check-label" for="showval_seed__1" title="Uncheck this to hide '1' from the page.">1</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_seed__2" checked="true" onchange="javascript:toggleShowVal('seed', '2')"> <label class="form-check-label" for="showval_seed__2" title="Uncheck this to hide '2' from the page.">2</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_seed__3" checked="true" onchange="javascript:toggleShowVal('seed', '3')"> <label class="form-check-label" for="showval_seed__3" title="Uncheck this to hide '3' from the page.">3</label>
+<h4>Prompt</h4><div class="timer_box">Auto cycle every <input style="width:30em;" autocomplete="off" type="range" min="0" max="360" value="0" class="form-range timer_range" id="range_tablist_prompt"><label class="form-check-label" for="range_tablist_prompt" id="label_range_tablist_prompt">0 seconds</label></div>
+Show value: <input class="form-check-input" type="checkbox" autocomplete="off" id="showval_prompt__cat" checked="true" onchange="javascript:toggleShowVal('prompt', 'cat')"> <label class="form-check-label" for="showval_prompt__cat" title="Uncheck this to hide 'Cat' from the page.">Cat</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_prompt__dog" checked="true" onchange="javascript:toggleShowVal('prompt', 'dog')"> <label class="form-check-label" for="showval_prompt__dog" title="Uncheck this to hide 'Dog' from the page.">Dog</label>
+<h4>Prompt Replacements</h4><div class="timer_box">Auto cycle every <input style="width:30em;" autocomplete="off" type="range" min="0" max="360" value="0" class="form-range timer_range" id="range_tablist_promptreplaceexample"><label class="form-check-label" for="range_tablist_promptreplaceexample" id="label_range_tablist_promptreplaceexample">0 seconds</label></div>
+Show value: <input class="form-check-input" type="checkbox" autocomplete="off" id="showval_promptreplaceexample__field" checked="true" onchange="javascript:toggleShowVal('promptreplaceexample', 'field')"> <label class="form-check-label" for="showval_promptreplaceexample__field" title="Uncheck this to hide ' location = field' from the page."> location = field</label><input class="form-check-input" type="checkbox" autocomplete="off" id="showval_promptreplaceexample__outer_space" checked="true" onchange="javascript:toggleShowVal('promptreplaceexample', 'outer_space')"> <label class="form-check-label" for="showval_promptreplaceexample__outer_space" title="Uncheck this to hide ' location = distant planet deep in outer space' from the page."> location = distant planet deep in outer space</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><input class="form-check-input" type="checkbox" id="showDescriptions" checked="true" autocomplete="off" onchange="javascript:toggleDescriptions()"> <label class="form-check-label" for="showDescriptions" title="Uncheck this to focus on the grid. Check it to see the full descriptions of each option.">Show descriptions of axes and values</label>
     </center>
     <br>
     <div style="margin: auto; width: fit-content;"><table class="sel_table">
 <tr class="primary">
 <td>
 <h4>Sampler</h4>
-Different samplers can produce slightly different output.</td>
-<td><ul class="nav nav-tabs" role="tablist">
+<div class="axis_table_cell">Different samplers can produce slightly different output.</div></td>
+<td><ul class="nav nav-tabs" role="tablist" id="tablist_sampler">
 <li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_sampler__euler_a" id="clicktab_sampler__euler_a" aria-selected="true" role="tab" title="Euler A: Euler Ancestral is like Euler, but with <b>ancestral</b> stuff.">Euler A</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_sampler__euler" id="clicktab_sampler__euler" aria-selected="false" role="tab" title="Euler: Good ol k_euler.">Euler</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_sampler__ddim" id="clicktab_sampler__ddim" aria-selected="false" role="tab" title="DDIM: The original.">DDIM</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane active show" id="tab_sampler__euler_a" role="tabpanel">Euler Ancestral is like Euler, but with <b>ancestral</b> stuff.</div>
-<div class="tab-pane" id="tab_sampler__euler" role="tabpanel">Good ol k_euler.</div>
-<div class="tab-pane" id="tab_sampler__ddim" role="tabpanel">The original.</div>
+<div class="tab-pane active show" id="tab_sampler__euler_a" role="tabpanel"><div class="tabval_subdiv">Euler Ancestral is like Euler, but with <b>ancestral</b> stuff.</div></div>
+<div class="tab-pane" id="tab_sampler__euler" role="tabpanel"><div class="tabval_subdiv">Good ol k_euler.</div></div>
+<div class="tab-pane" id="tab_sampler__ddim" role="tabpanel"><div class="tabval_subdiv">The original.</div></div>
 </div></td></tr>
 <tr class="secondary">
 <td>
 <h4>Steps</h4>
-How many times to run the sampler.</td>
-<td><ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_steps__10" id="clicktab_steps__10" aria-selected="true" role="tab" title="10: Ten times.">10</a></li>
+<div class="axis_table_cell">How many times to run the sampler.</div></td>
+<td><ul class="nav nav-tabs" role="tablist" id="tablist_steps">
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_steps__10" id="clicktab_steps__10" aria-selected="false" role="tab" title="10: Ten times.">10</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_steps__15" id="clicktab_steps__15" aria-selected="false" role="tab" title="15: ">15</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_steps__20" id="clicktab_steps__20" aria-selected="false" role="tab" title="20: ">20</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_steps__20" id="clicktab_steps__20" aria-selected="true" role="tab" title="20: ">20</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane active show" id="tab_steps__10" role="tabpanel">Ten times.</div>
-<div class="tab-pane" id="tab_steps__15" role="tabpanel"></div>
-<div class="tab-pane" id="tab_steps__20" role="tabpanel"></div>
+<div class="tab-pane" id="tab_steps__10" role="tabpanel"><div class="tabval_subdiv">Ten times.</div></div>
+<div class="tab-pane" id="tab_steps__15" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane active show" id="tab_steps__20" role="tabpanel"><div class="tabval_subdiv"></div></div>
 </div></td></tr>
 <tr class="primary">
 <td>
 <h4>CFG Scale</h4>
-</td>
-<td><ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_cfgscale__3" id="clicktab_cfgscale__3" aria-selected="true" role="tab" title="3: ">3</a></li>
+<div class="axis_table_cell"></div></td>
+<td><ul class="nav nav-tabs" role="tablist" id="tablist_cfgscale">
+<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__3" id="clicktab_cfgscale__3" aria-selected="false" role="tab" title="3: ">3</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__5" id="clicktab_cfgscale__5" aria-selected="false" role="tab" title="5: ">5</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__7" id="clicktab_cfgscale__7" aria-selected="false" role="tab" title="7: ">7</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_cfgscale__7" id="clicktab_cfgscale__7" aria-selected="true" role="tab" title="7: ">7</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__9" id="clicktab_cfgscale__9" aria-selected="false" role="tab" title="9: ">9</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_cfgscale__11" id="clicktab_cfgscale__11" aria-selected="false" role="tab" title="11: ">11</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane active show" id="tab_cfgscale__3" role="tabpanel"></div>
-<div class="tab-pane" id="tab_cfgscale__5" role="tabpanel"></div>
-<div class="tab-pane" id="tab_cfgscale__7" role="tabpanel"></div>
-<div class="tab-pane" id="tab_cfgscale__9" role="tabpanel"></div>
-<div class="tab-pane" id="tab_cfgscale__11" role="tabpanel"></div>
+<div class="tab-pane" id="tab_cfgscale__3" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane" id="tab_cfgscale__5" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane active show" id="tab_cfgscale__7" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane" id="tab_cfgscale__9" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane" id="tab_cfgscale__11" role="tabpanel"><div class="tabval_subdiv"></div></div>
 </div></td></tr>
 <tr class="secondary">
 <td>
 <h4>Seed</h4>
-</td>
-<td><ul class="nav nav-tabs" role="tablist">
+<div class="axis_table_cell"></div></td>
+<td><ul class="nav nav-tabs" role="tablist" id="tablist_seed">
 <li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_seed__1" id="clicktab_seed__1" aria-selected="true" role="tab" title="1: ">1</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_seed__2" id="clicktab_seed__2" aria-selected="false" role="tab" title="2: ">2</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_seed__3" id="clicktab_seed__3" aria-selected="false" role="tab" title="3: ">3</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane active show" id="tab_seed__1" role="tabpanel"></div>
-<div class="tab-pane" id="tab_seed__2" role="tabpanel"></div>
-<div class="tab-pane" id="tab_seed__3" role="tabpanel"></div>
+<div class="tab-pane active show" id="tab_seed__1" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane" id="tab_seed__2" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane" id="tab_seed__3" role="tabpanel"><div class="tabval_subdiv"></div></div>
 </div></td></tr>
 <tr class="primary">
 <td>
 <h4>Prompt</h4>
-</td>
-<td><ul class="nav nav-tabs" role="tablist">
+<div class="axis_table_cell"></div></td>
+<td><ul class="nav nav-tabs" role="tablist" id="tablist_prompt">
 <li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_prompt__cat" id="clicktab_prompt__cat" aria-selected="true" role="tab" title="Cat: ">Cat</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_prompt__dog" id="clicktab_prompt__dog" aria-selected="false" role="tab" title="Dog: ">Dog</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane active show" id="tab_prompt__cat" role="tabpanel"></div>
-<div class="tab-pane" id="tab_prompt__dog" role="tabpanel"></div>
+<div class="tab-pane active show" id="tab_prompt__cat" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane" id="tab_prompt__dog" role="tabpanel"><div class="tabval_subdiv"></div></div>
 </div></td></tr>
 <tr class="secondary">
 <td>
 <h4>Prompt Replacements</h4>
-</td>
-<td><ul class="nav nav-tabs" role="tablist">
+<div class="axis_table_cell"></div></td>
+<td><ul class="nav nav-tabs" role="tablist" id="tablist_promptreplaceexample">
 <li class="nav-item" role="presentation"><a class="nav-link active" data-bs-toggle="tab" href="#tab_promptreplaceexample__field" id="clicktab_promptreplaceexample__field" aria-selected="true" role="tab" title=" location = field: "> location = field</a></li>
 <li class="nav-item" role="presentation"><a class="nav-link" data-bs-toggle="tab" href="#tab_promptreplaceexample__outer_space" id="clicktab_promptreplaceexample__outer_space" aria-selected="false" role="tab" title=" location = distant planet deep in outer space: "> location = distant planet deep in outer space</a></li>
 </ul>
 <div class="tab-content">
-<div class="tab-pane active show" id="tab_promptreplaceexample__field" role="tabpanel"></div>
-<div class="tab-pane" id="tab_promptreplaceexample__outer_space" role="tabpanel"></div>
+<div class="tab-pane active show" id="tab_promptreplaceexample__field" role="tabpanel"><div class="tabval_subdiv"></div></div>
+<div class="tab-pane" id="tab_promptreplaceexample__outer_space" role="tabpanel"><div class="tabval_subdiv"></div></div>
 </div></td></tr>
 </table>
 <center><br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">X Axis:&nbsp;
@@ -135,18 +205,23 @@ How many times to run the sampler.</td>
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_prompt" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_prompt" title="">Prompt</label>
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_promptreplaceexample" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_promptreplaceexample" title="">Prompt Replacements</label>
 </div></center></div>
-<div><center><input class="form-check-input" type="checkbox" value="" id="autoScaleImages"> <label class="form-check-label" for="autoScaleImages">Auto-scale images to viewport width</label></center></div><div style="margin: auto; width: fit-content;"><table id="image_table"></table></div>
+<div><center><input class="form-check-input" type="checkbox" autocomplete="off" value="" id="autoScaleImages"> <label class="form-check-label" for="autoScaleImages">Auto-scale images to viewport width</label></center></div><div style="margin: auto; width: fit-content;"><table id="image_table"></table></div>
 
+    <div class="modal modal-fullscreen popup_modal_background" id="image_info_modal"></div>
+    <br><div style="width:256px;height:512px;"></div> <!-- Spacer to reduce screen-jumping if images load while you're scrolled down -->
     <footer>
         <center>
             <hr>
             Created by YOUR NAME HERE for SOME REASON HERE
             <br>The technology that powers this page is <a href="https://github.com/mcmonkeyprojects/sd-infinity-grid-generator-script">Infinity Grid Generator for Stable Diffusion</a>, published under the MIT license by Alex 'mcmonkey' Goodwin.
             <br>This software allows users to generate pages with any content they desire. Therefore, content on this page (images, text, etc.) is the property of whoever generated this specific page.
+            <br>Images area auto-generated by an AI (Stable Diffusion) and so may not have been reviewed by the page author before publishing.
             <br>Made using the <a href="https://bootswatch.com/darkly/">Darkly Bootstrap Theme</a> by Thomas Park, which was released under the <a href="https://github.com/thomaspark/bootswatch/blob/95df99d76147797cbcb1014b639805add2327f65/LICENSE">MIT License</a>.
+            <br>
+            <br><div style="width:256px;height:512px;"></div>
         </center>
     </footer>
-    <script src="data.js?vary=2"></script>
-    <script src="proc.js?vary=2"></script>
+    <script src="data.js?vary=4"></script>
+    <script src="proc.js?vary=4"></script>
     <script src="bootstrap.bundle.min.js"></script>
 </body>

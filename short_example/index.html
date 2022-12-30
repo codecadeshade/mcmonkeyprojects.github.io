@@ -34,9 +34,15 @@
         max-height: 8em;
         overflow: auto;
     }
-    table tr td {
+    table tr td, table tr th {
         vertical-align: top;
         border: 1px solid black;
+    }
+    th {
+        position: sticky;
+        top: -1px;
+        background-color: #202020;
+        background-clip: padding-box;
     }
     .popup_modal_background {
         font-family: monospace, monospace;
@@ -44,7 +50,7 @@
         text-align: center;
     }
     .popup_modal_img {
-        width: calc(min(100vw, 100vh - 6em));
+        height: calc(min(100vw - 6em, 100vh - 6em));
         position: relative;
         margin: auto;
     }
@@ -65,6 +71,18 @@
     }
     .tab_hidden {
         display: none;
+    }
+    .nav-link:focus {
+        background-color: #909050 !important;
+    }
+    .axis_label_td {
+        position: sticky;
+        left: 0px;
+        background-color: #202020;
+        background-clip: padding-box;
+    }
+    .axis_selectors {
+        text-align: right;
     }
     </style>
     <script src="jquery.min.js"></script>
@@ -189,7 +207,7 @@ Show value: <input class="form-check-input" type="checkbox" autocomplete="off" i
 <div class="tab-pane" id="tab_promptreplaceexample__outer_space" role="tabpanel"><div class="tabval_subdiv"></div></div>
 </div></td></tr>
 </table>
-<center><br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">X Axis:&nbsp;
+<div class="axis_selectors"><br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">X Axis:&nbsp;
 <input type="radio" class="btn-check" name="x_axis_selector" id="x_sampler" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_sampler" title="Different samplers can produce slightly different output.">Sampler</label>
 <input type="radio" class="btn-check" name="x_axis_selector" id="x_steps" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_steps" title="How many times to run the sampler.">Steps</label>
 <input type="radio" class="btn-check" name="x_axis_selector" id="x_cfgscale" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x_cfgscale" title="">CFG Scale</label>
@@ -204,7 +222,26 @@ Show value: <input class="form-check-input" type="checkbox" autocomplete="off" i
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_seed" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_seed" title="">Seed</label>
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_prompt" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_prompt" title="">Prompt</label>
 <input type="radio" class="btn-check" name="y_axis_selector" id="y_promptreplaceexample" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y_promptreplaceexample" title="">Prompt Replacements</label>
-</div></center></div>
+</div>
+<br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">X Super-Axis:&nbsp;
+<input type="radio" class="btn-check" name="x2_axis_selector" id="x2_none" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x2_none" title="None">None</label>
+<input type="radio" class="btn-check" name="x2_axis_selector" id="x2_sampler" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x2_sampler" title="Different samplers can produce slightly different output.">Sampler</label>
+<input type="radio" class="btn-check" name="x2_axis_selector" id="x2_steps" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x2_steps" title="How many times to run the sampler.">Steps</label>
+<input type="radio" class="btn-check" name="x2_axis_selector" id="x2_cfgscale" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x2_cfgscale" title="">CFG Scale</label>
+<input type="radio" class="btn-check" name="x2_axis_selector" id="x2_seed" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x2_seed" title="">Seed</label>
+<input type="radio" class="btn-check" name="x2_axis_selector" id="x2_prompt" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x2_prompt" title="">Prompt</label>
+<input type="radio" class="btn-check" name="x2_axis_selector" id="x2_promptreplaceexample" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="x2_promptreplaceexample" title="">Prompt Replacements</label>
+</div>
+<br><div class="btn-group" role="group" aria-label="Basic radio toggle button group">Y Super-Axis:&nbsp;
+<input type="radio" class="btn-check" name="y2_axis_selector" id="y2_none" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y2_none" title="None">None</label>
+<input type="radio" class="btn-check" name="y2_axis_selector" id="y2_sampler" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y2_sampler" title="Different samplers can produce slightly different output.">Sampler</label>
+<input type="radio" class="btn-check" name="y2_axis_selector" id="y2_steps" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y2_steps" title="How many times to run the sampler.">Steps</label>
+<input type="radio" class="btn-check" name="y2_axis_selector" id="y2_cfgscale" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y2_cfgscale" title="">CFG Scale</label>
+<input type="radio" class="btn-check" name="y2_axis_selector" id="y2_seed" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y2_seed" title="">Seed</label>
+<input type="radio" class="btn-check" name="y2_axis_selector" id="y2_prompt" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y2_prompt" title="">Prompt</label>
+<input type="radio" class="btn-check" name="y2_axis_selector" id="y2_promptreplaceexample" autocomplete="off" checked=""><label class="btn btn-outline-primary" for="y2_promptreplaceexample" title="">Prompt Replacements</label>
+</div>
+</div></div>
 <div><center><input class="form-check-input" type="checkbox" autocomplete="off" value="" id="autoScaleImages"> <label class="form-check-label" for="autoScaleImages">Auto-scale images to viewport width</label></center></div><div style="margin: auto; width: fit-content;"><table id="image_table"></table></div>
 
     <div class="modal modal-fullscreen popup_modal_background" id="image_info_modal"></div>
@@ -221,7 +258,7 @@ Show value: <input class="form-check-input" type="checkbox" autocomplete="off" i
             <br><div style="width:256px;height:512px;"></div>
         </center>
     </footer>
-    <script src="data.js?vary=4"></script>
-    <script src="proc.js?vary=4"></script>
+    <script src="data.js?vary=7"></script>
+    <script src="proc.js?vary=7"></script>
     <script src="bootstrap.bundle.min.js"></script>
 </body>

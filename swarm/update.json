@@ -1,4 +1,4 @@
 {
-    "version": "0.6.2.0",
-    "message": "This is a test message, Swarm version 0.6.2.0 is latest. Version checking didn't exist before so you should never see this?"
+    "version": "0.6.3.0",
+    "message": "StableSwarmUI version 0.6.3 is available! Go run your 'update-windows.bat' file in the Swarm root to update to latest!"
 }

@@ -1,4 +1,4 @@
 {
-    "version": "0.6.4.0",
-    "message": "StableSwarmUI version 0.6.4 is available! Go run your 'update-windows.bat' file in the Swarm root to update to latest!"
+    "version": "0.9.3.0",
+    "message": "You are using the legacy version of Swarm. Please migrate to the modern SwarmUI by running 'migrate-windows.bat', or redownloading from https://github.com/mcmonkeyprojects/SwarmUI"
 }
